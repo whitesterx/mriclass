@@ -2,6 +2,7 @@
 #define BOSNIAKPARAM_H
 
 #include "bosniakparamitems.h"
+#include <QList>
 
 namespace Bosniak {
 
@@ -26,6 +27,18 @@ namespace Bosniak {
         Content     content;
         Contour     contour;
         Size        size;
+    };
+
+    struct BosniakPureParam
+    {
+        QList<WallThick>    wallThick;
+        QList<Septum>       septum;
+        QList<Contrast>     contrast;
+        QList<Calcium>      calcium;
+        QList<Tissue>       tissue;
+        QList<Content>      content;
+        QList<Contour>      contour;
+        QList< Size>        size;
     };
 }
 

@@ -32,7 +32,7 @@ namespace Bosniak
     {
         NULL_VALUE,
         NO,
-        FINE,
+        SMALL,
         KNOBBY,
         MASSIVE
     };
