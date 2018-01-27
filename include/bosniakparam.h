@@ -19,6 +19,8 @@ namespace Bosniak {
             size        (Size::NULL_VALUE)
         {}
 
+        const static quint8 numParam = 8;
+
         WallThick   wallThick;
         Septum      septum;
         Contrast    contrast;

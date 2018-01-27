@@ -86,12 +86,99 @@ BosniakClassificator::initDegrees()
         temp.size.append(Size::SMALL);
         temp.size.append(Size::BIG);
 
-        _degrees.insert(Degree::THIRD, temp);
+        _degrees.insert(Degree::FOURTH, temp);
     }
 
 }
 
 BosniakAnswer BosniakClassificator::answer(const BosniakParam& param)
 {
+    BosniakAnswer answer;
+    answer.degree = Degree::FIRST;
+    answer.probability = 0;
 
+    for(auto i = _degrees.begin(); i != _degrees.end(); ++i)
+    {
+        quint32 coin = 0;
+        for(auto j = i->wallThick.begin(); j != wallThick.end(); ++j)
+        {
+            if(param.wallThick == *j)
+            {
+                ++coin;
+                break;
+            }
+        }
+
+        for(auto j = i->septum.begin(); j != septum.end(); ++j)
+        {
+            if(param.septum == *j)
+            {
+                ++coin;
+                break;
+            }
+        }
+
+        for(auto j = i->contrast.begin(); j != contrast.end(); ++j)
+        {
+            if(param.contrast == *j)
+            {
+                ++coin;
+                break;
+            }
+        }
+
+        for(auto j = i->calcium.begin(); j != calcium.end(); ++j)
+        {
+            if(param.calcium == *j)
+            {
+                ++coin;
+                break;
+            }
+        }
+
+        for(auto j = i->tissue.begin(); j != tissue.end(); ++j)
+        {
+            if(param.tissue == *j)
+            {
+                ++coin;
+                break;
+            }
+        }
+
+        for(auto j = i->content.begin(); j != content.end(); ++j)
+        {
+            if(param.content == *j)
+            {
+                ++coin;
+                break;
+            }
+        }
+
+        for(auto j = i->contour.begin(); j != contour.end(); ++j)
+        {
+            if(param.contour == *j)
+            {
+                ++coin;
+                break;
+            }
+        }
+
+        for(auto j = i->size.begin(); j != size.end(); ++j)
+        {
+            if(param.size == *j)
+            {
+                ++coin;
+                break;
+            }
+        }
+
+        double prob = static_cast<double>(coin) / param.numParam;
+        if(prob > answer.probability)
+        {
+            answer.probability = prob;
+            answer.degree = i.key();
+        }
+    }
+
+    return answer;
 }

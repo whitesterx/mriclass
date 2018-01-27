@@ -24,7 +24,4 @@ namespace Bosniak {
 
 }
 
-
-
-
 #endif // BOSNIAKCLASSIFICATOR_H

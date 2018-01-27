@@ -23,7 +23,6 @@ namespace Bosniak
         {}
 
         Degree degree;
-        QString name;
         double probability;
         QString description;
     };
