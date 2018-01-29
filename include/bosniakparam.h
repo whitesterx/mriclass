@@ -8,7 +8,7 @@ namespace Bosniak {
 
     struct BosniakParam
     {
-        BosinakParam() :
+        BosniakParam() :
             wallThick   (WallThick::NULL_VALUE),
             septum      (Septum::NULL_VALUE),
             contrast    (Contrast::NULL_VALUE),

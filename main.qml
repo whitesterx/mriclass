@@ -1,32 +1,61 @@
 import QtQuick 2.10
 import QtQuick.Controls 2.3
+import QtQuick.Layouts 1.3
 
 ApplicationWindow {
     id: window
     visible: true
-    width: 640
-    height: 480
-    title: qsTr("Stack")
+    title: qsTr("МРТ Класс")
+
 
     header: ToolBar {
-        contentHeight: toolButton.implicitHeight
+        id: toolBar
+        contentHeight: window.height * 0.08
 
-        ToolButton {
-            id: toolButton
-            text: stackView.depth > 1 ? "\u25C0" : "\u2630"
-            font.pixelSize: Qt.application.font.pixelSize * 1.6
-            onClicked: {
-                if (stackView.depth > 1) {
-                    stackView.pop()
-                } else {
-                    drawer.open()
+        background: Rectangle {
+                id: toolBarBackRect
+                anchors.fill: parent
+                color: "#4e73fc"
+            }
+
+        RowLayout {
+            id: rowLayout
+            anchors.fill: parent
+
+            ToolButton {
+                id: toolButton
+                implicitHeight: toolBar.contentHeight
+                implicitWidth: toolBar.contentHeight
+                //text: stackView.depth > 1 ? "\u25C0" : qsTr("\u2261")
+                //font.pixelSize: Qt.application.font.pixelSize * 1.6
+
+                background: Rectangle {
+                    anchors.fill: parent
+                    color: "#4e73fc"
+                }
+
+                Image {
+                    id: menuIcon
+                    source: "pics/menu64.png"
+                    fillMode: Image.PreserveAspectFit
+                    anchors.centerIn: parent
+                }
+
+                onClicked: {
+                    if (stackView.depth > 1) {
+                        stackView.pop()
+                    } else {
+                        drawer.open()
+                    }
                 }
             }
-        }
 
-        Label {
-            text: stackView.currentItem.title
-            anchors.centerIn: parent
+            Label {
+                font.pixelSize: toolBar.contentHeight * 0.4
+                color: "white"
+                text: qsTr("МРТ Класс")
+                anchors.centerIn: parent
+            }
         }
     }
 

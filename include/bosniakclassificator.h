@@ -7,6 +7,7 @@ namespace Bosniak {
 
     struct BosniakAnswer;
     struct BosniakParam;
+    struct BosniakPureParam;
     enum class Degree;
 
     class BosniakClassificator

@@ -9,7 +9,7 @@ BosniakClassificator::BosniakClassificator()
     initDegrees();
 }
 
-BosniakClassificator::initDegrees()
+void BosniakClassificator::initDegrees()
 {
     // First degree
     {
@@ -100,7 +100,7 @@ BosniakAnswer BosniakClassificator::answer(const BosniakParam& param)
     for(auto i = _degrees.begin(); i != _degrees.end(); ++i)
     {
         quint32 coin = 0;
-        for(auto j = i->wallThick.begin(); j != wallThick.end(); ++j)
+        for(auto j = i->wallThick.begin(); j != i->wallThick.end(); ++j)
         {
             if(param.wallThick == *j)
             {
@@ -109,7 +109,7 @@ BosniakAnswer BosniakClassificator::answer(const BosniakParam& param)
             }
         }
 
-        for(auto j = i->septum.begin(); j != septum.end(); ++j)
+        for(auto j = i->septum.begin(); j != i->septum.end(); ++j)
         {
             if(param.septum == *j)
             {
@@ -118,7 +118,7 @@ BosniakAnswer BosniakClassificator::answer(const BosniakParam& param)
             }
         }
 
-        for(auto j = i->contrast.begin(); j != contrast.end(); ++j)
+        for(auto j = i->contrast.begin(); j != i->contrast.end(); ++j)
         {
             if(param.contrast == *j)
             {
@@ -127,7 +127,7 @@ BosniakAnswer BosniakClassificator::answer(const BosniakParam& param)
             }
         }
 
-        for(auto j = i->calcium.begin(); j != calcium.end(); ++j)
+        for(auto j = i->calcium.begin(); j != i->calcium.end(); ++j)
         {
             if(param.calcium == *j)
             {
@@ -136,7 +136,7 @@ BosniakAnswer BosniakClassificator::answer(const BosniakParam& param)
             }
         }
 
-        for(auto j = i->tissue.begin(); j != tissue.end(); ++j)
+        for(auto j = i->tissue.begin(); j != i->tissue.end(); ++j)
         {
             if(param.tissue == *j)
             {
@@ -145,7 +145,7 @@ BosniakAnswer BosniakClassificator::answer(const BosniakParam& param)
             }
         }
 
-        for(auto j = i->content.begin(); j != content.end(); ++j)
+        for(auto j = i->content.begin(); j != i->content.end(); ++j)
         {
             if(param.content == *j)
             {
@@ -154,7 +154,7 @@ BosniakAnswer BosniakClassificator::answer(const BosniakParam& param)
             }
         }
 
-        for(auto j = i->contour.begin(); j != contour.end(); ++j)
+        for(auto j = i->contour.begin(); j != i->contour.end(); ++j)
         {
             if(param.contour == *j)
             {
@@ -163,7 +163,7 @@ BosniakAnswer BosniakClassificator::answer(const BosniakParam& param)
             }
         }
 
-        for(auto j = i->size.begin(); j != size.end(); ++j)
+        for(auto j = i->size.begin(); j != i->size.end(); ++j)
         {
             if(param.size == *j)
             {

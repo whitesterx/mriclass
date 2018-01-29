@@ -15,7 +15,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
     bosniakclassificator.cpp
 
-RESOURCES += qml.qrc
+RESOURCES += qml.qrc \
+    pics.qrc
 
 #Include header path
 INCLUDEPATH += $$PWD/include

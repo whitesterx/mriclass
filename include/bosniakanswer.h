@@ -19,7 +19,7 @@ namespace Bosniak
     struct BosniakAnswer
     {
         BosniakAnswer() :
-        degree(NULL_VALUE)
+        degree(Degree::NULL_VALUE)
         {}
 
         Degree degree;
