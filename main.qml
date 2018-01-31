@@ -1,30 +1,38 @@
 import QtQuick 2.10
 import QtQuick.Controls 2.3
 import QtQuick.Layouts 1.3
+import QtQuick.Controls.Material 2.2
 
 ApplicationWindow {
     id: window
+//    width: 360
+//    height: 520
     visible: true
     title: qsTr("МРТ Класс")
 
 
     header: ToolBar {
         id: toolBar
-        contentHeight: window.height * 0.08
+        Material.foreground: "white"
+
+   /*     contentHeight: window.height * 0.08
 
         background: Rectangle {
                 id: toolBarBackRect
                 anchors.fill: parent
                 color: "#4e73fc"
-            }
+            }*/
 
         RowLayout {
             id: rowLayout
             anchors.fill: parent
+            spacing: 20
 
             ToolButton {
                 id: toolButton
-                implicitHeight: toolBar.contentHeight
+                icon.name: "drawer"
+                icon.source: "/icons/20x20/drawer.png"
+/*                implicitHeight: toolBar.contentHeight
                 implicitWidth: toolBar.contentHeight
                 //text: stackView.depth > 1 ? "\u25C0" : qsTr("\u2261")
                 //font.pixelSize: Qt.application.font.pixelSize * 1.6
@@ -47,19 +55,22 @@ ApplicationWindow {
                     } else {
                         drawer.open()
                     }
-                }
+                }*/
             }
 
             Label {
-                font.pixelSize: toolBar.contentHeight * 0.4
-                color: "white"
+                id: titleLabel
                 text: qsTr("МРТ Класс")
+                font.pixelSize: 20
+                elide: Label.ElideRight
+                horizontalAlignment: Qt.AlignHCenter
+                verticalAlignment: Qt.AlignVCenter
                 anchors.centerIn: parent
             }
         }
     }
 
-    Drawer {
+/*    Drawer {
         id: drawer
         width: window.width * 0.66
         height: window.height
@@ -84,11 +95,11 @@ ApplicationWindow {
                 }
             }
         }
-    }
+    }*/
 
     StackView {
         id: stackView
-        initialItem: "HomeForm.ui.qml"
+        initialItem: "MainForm.ui.qml"
         anchors.fill: parent
     }
 }
