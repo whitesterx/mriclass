@@ -8,11 +8,15 @@ ApplicationWindow {
     visible: true
     title: qsTr("МРТ Класс")
 
+	Shortcut {
+		sequence: "Menu"
+		onActivated: optionsMenu.open()
+	}
 
     header: ToolBar {
         id: toolBar
         Material.foreground: "white"
-        contentHeight: window.height * 0.08
+		contentHeight: window.height * 0.08
 
         RowLayout {
             id: rowLayout
@@ -22,23 +26,26 @@ ApplicationWindow {
             ToolButton {
                 id: toolButton
                 icon.name: "drawer"
-                icon.source: "/icons/20x20/drawer.png"
-                onClicked: {
-                    optionsMenu.open()
-                    optionsMenu.currentIndex = -1
-                }
-                Menu {
-                    id: optionsMenu
-                    x: 0
-                    y: toolBar.contentHeight
-                    transformOrigin: Menu.TopRight
+				icon.source: "/icons/20x20/drawer.png"
+				onClicked: {
+					if(optionsMenu.visible)
+						optionsMenu.dismiss()
+					else
+						optionsMenu.open()
+					optionsMenu.currentIndex = -1
+				}
+				Menu {
+					id: optionsMenu
+					x: 0
+					y: toolBar.contentHeight
+					transformOrigin: Menu.TopRight
 
-                    MenuItem {
-                        id: aboutMenuItem
-                        text: qsTr("О программе")
-                    }
-                }
-            }
+					MenuItem {
+						id: aboutMenuItem
+						text: qsTr("О программе")
+					}
+				}
+			}
 
             Label {
                 id: titleLabel
@@ -48,9 +55,9 @@ ApplicationWindow {
                 horizontalAlignment: Qt.AlignHCenter
                 verticalAlignment: Qt.AlignVCenter
                 anchors.centerIn: parent
-            }
-        }
-    }
+			}
+		}
+	}
 
     StackView {
         id: stackView
